@@ -10,7 +10,6 @@ Modules needed:
 '''
 
 __author__	=	'Consty'
-
 targetUrl	=	"https://weibo.com/1840483562/G48Ajgfhq?filter=hot&root_comment_id=0&type=comment"
 saveList	=	[]
 
@@ -24,13 +23,6 @@ def q():
 	global browser
 	browser.quit()
 	quit()
-
-
-#def login():
-#	browser.get('https://weibo.com')
-#	input("请在登陆完成后输入回车")
-#	browser.get('https://weibo.com/1840483562/G48Ajgfhq?filter=hot&root_comment_id=0&type=comment')
-
 
 #自动判断保存或读取cookies
 def auto_cookies():
@@ -109,7 +101,6 @@ def get_img():
 		firstComment	= browser.find_element_by_xpath('//div[@class="list_li S_line1 clearfix"]')
 		commentID		= firstComment.get_attribute('comment_id')
 		browser.find_element_by_xpath('//div[@comment_id="'+commentID+'"]//li[@class="WB_pic S_bg2 bigcursor"]').click()
-
 		#到这一步应该已经确认有照片了
 		print("本栏评论有图片，即将开始获取")
 		#等待大图出现，以防止浏览器反应不过来
@@ -128,7 +119,6 @@ def get_img():
 		return retList
 
 '''返回的retList为一个list，根据len(retList)判断是否添加到保存列表中'''
-
 
 #询问是否继续，默认步长为50,设置步长为0则不再询问是否继续
 def ask_for_continue(i,step=50):
@@ -171,7 +161,6 @@ def Main():
 	global continueFlag
 	continueFlag = False
 	i = 0
-
 #========================================================================
 	#加载浏览器，登陆weibo.com
 	browser = webdriver.Firefox()
@@ -205,12 +194,13 @@ def Main():
 			print("目标已记录")
 		tempRet = []
 	print(len(saveList))
-
-
-if __name__ == '__main__':							#我也不知道为什么都要加这一行判断，反正加就完事了!
+#========================================================================
+#主程序
+#========================================================================
+#我也不知道为什么都要加这一行判断，反正加就完事了!
+if __name__ == '__main__':
 	Main()
 
 '''
 微博评论先展示13条，下拉再出13条，再下拉再出13条，之后就必须要按“查看更多”了
 '''
-

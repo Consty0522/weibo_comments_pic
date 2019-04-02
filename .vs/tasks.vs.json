@@ -1,0 +1,15 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "任务-geckodriver",
+      "appliesTo": "geckodriver.log",
+      "type": "launch"
+    },
+    {
+      "taskName": "任务-Main",
+      "appliesTo": "Main.py",
+      "type": "launch"
+    }
+  ]
+}
